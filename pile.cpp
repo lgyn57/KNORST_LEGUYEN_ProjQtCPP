@@ -19,3 +19,14 @@ bool is_EmptyPile(Pile p)
 	
 	return false;
 }
+
+/**
+ * ---------------------------------------------------------------------
+ */
+
+Pile push_pile(Pile p, int n)
+{
+	PileElement *element;
+
+	element = new int
+}
