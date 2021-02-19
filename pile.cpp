@@ -26,7 +26,7 @@ int pile<T>::~pile()
 
 template <class T>
 int pile<T>::push(const T & element)
-// On ajoute le nouvel element a la fin du vecteur.
+// On ajoute le nouvel element a la fin de la pile.
 {
 	if (nb_elem >= taille)
 		return 0;
@@ -38,7 +38,7 @@ int pile<T>::push(const T & element)
 
 template <class T>
 int pile<T>::pop(T & resultat)
-// On retire l'element a la fin du vecteur.
+// On retire l'element a la fin de la pile.
 {
 	if (nb_elem == 0)
 		return 0;
