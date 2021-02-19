@@ -1,37 +1,46 @@
 #ifndef DEF_TEST_PILE_HPP
 #define DEF_TEST_PILE_HPP
-#include <cstdlib>
-#include <stdexcept>
 
-namespace td2Pile
+
+#include <iostream.h>
+#include <stdlib.h>
+
+template <class T>
+class pile
 {
-	class pile
-	{
-	protected:
-		/**
-         * D e f i n i t i o n
-         */
-		typedef struct PileElement
-		{
-			
-		}PileElement, *Pile;
+ private :
+	T * donnees;		// Le tableau de donnees.
+	int taille;			// Taille de la pile.
+	int nb_elem;		// Nombre d'elements de la pile.
 
 
-	public:
-		/**
-         * M e t h o d s
-         */
+	pile(const pile &);
+	pile& operator = (const pile &);
 
-		//CONSTRUCTOR
-		pile();
+ public :
 
-		//DESTRUCTOR
-		~pile();
+	// C O N S T R U C T E U R
 
-		Pile new_pile(void);
+	pile(int size);
 
-		bool is_EmptyPile(Pile p);
 
-		Pile push_pile(Pile p, int n);
-	};
-}
+	// D E S T R U C T E U R
+
+	inline ~pile();
+
+
+	// M E T H O D E S
+
+	//Modification.
+
+	int push(const T &);// Permet d'ajouter un element dans la pile.
+
+	int pop(T &);// Permet de retirer un element de la pile.
+	
+
+	inline void empty() { nb_elem = 0;} //vide la pile
+
+
+	//Consultation.
+	inline int size() const { return nb_elem;}
+};
