@@ -114,3 +114,24 @@ int bintree<T>::compter_feuilles_arbre(const node<T> * arbre) const
 			   compter_feuilles_arbre(arbre->filsd);
 }
 
+template <class T>
+void bintree<T>::parcours_suffixe(const node<T> *, void (*f)(const T &)) const
+{
+  if (arbre != NULL)
+  {
+    parcours_suffixe(arbre->filsg, f);
+    parcours_suffixe(arbre->filsd, f);
+    f(arbre->data);
+  }
+}
+
+template <class T>
+void bintree<T>::parcours_prefixe(const node<T> *, void (*f)(const T &)) const
+{
+  if (arbre != NULL)
+  {
+    f(arbre->data);
+    parcours_prefixe(arbre->filsg, f);
+    parcours_prefixe(arbre->filsd, f);
+  }
+}
