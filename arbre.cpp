@@ -34,12 +34,7 @@ class bintree
 	int compter_feuilles_arbre(const node<T> *) const;
 
 	void parcours_prefixe(const node<T> *, void (*f) (const T &)) const;
-	void parcours_infixe(const node<T> *, void (*f) (const T &)) const;
 	void parcours_suffixe(const node<T> *, void (*f) (const T &)) const;
-
-	void parcours_prefixe(node<T> *, void (*f) (T &));
-	void parcours_infixe(node<T> *, void (*f) (T &));
-	void parcours_suffixe(node<T> *, void (*f) (T &));
 
 
  public :
