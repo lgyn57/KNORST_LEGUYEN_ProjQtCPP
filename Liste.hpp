@@ -8,12 +8,14 @@ class Liste
         Liste();
         virtual ~Liste();
 
-    protected:
+    private:
     NoeudDeListe* pPremier;
     NoeudDeListe* pDernier;
     int nbElts;
-
-    private:
+    
+    protected:
+    
+    
 };
 
 #endif // LISTE_H
