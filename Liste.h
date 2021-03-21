@@ -1,5 +1,5 @@
-#ifndef LISTE_H
-#define LISTE_H
+#ifndef LISTE_HPP
+#define LISTE_HPP
 
 
 class Liste
