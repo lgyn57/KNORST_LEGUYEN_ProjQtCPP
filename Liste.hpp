@@ -9,6 +9,9 @@ class Liste
         virtual ~Liste();
 
     protected:
+    NoeudDeListe* pPremier;
+    NoeudDeListe* pDernier;
+    int nbElts;
 
     private:
 };
