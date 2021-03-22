@@ -2,12 +2,12 @@
 #include <assert.h>
 
 
-template <class T> class bintree;
+template <class T> class arbre;
 
 template <class T>
 class node
 {
- friend class bintree<T>;
+ friend class arbre<T>;
 
  private :
 	T data;
@@ -19,15 +19,15 @@ class node
 
 
 template <class T>
-class bintree
+class arbre
 {
  private :
 	node<T> * racine;
 	node<T> * courant;
 	int nb_noeuds;
 
-	bintree(const bintree &);
-	bintree& operator = (const bintree &);
+	arbre(const arbre &);
+	arbre& operator = (const arbre &);
 
 	void detruire_arbre(node<T> *);
 	int profondeur_arbre(const node<T> *) const;
@@ -39,11 +39,11 @@ class bintree
 
  public :
 	// Contruction
-	bintree() { racine = courant = NULL; nb_noeuds = 0;}
+	arbre() { racine = courant = NULL; nb_noeuds = 0;}
 
 
 	// Destruction
-	inline ~bintree();
+	inline ~arbre();
 	// Modification
 	int add_left(const T &);
 	int add_right(const T &);
@@ -76,7 +76,7 @@ class bintree
 };
 
 template <class T>
-void bintree<T>::detruire_arbre(node<T> * arbre)
+void arbre<T>::detruire_arbre(node<T> * arbre)
 {
 	if (arbre != NULL)
 	{
@@ -87,7 +87,7 @@ void bintree<T>::detruire_arbre(node<T> * arbre)
 }
 
 template <class T>
-int bintree<T>::profondeur_arbre(const node<T> * arbre) const
+int arbre<T>::profondeur_arbre(const node<T> * arbre) const
 {
 	if (arbre == NULL)
 		return 0;
@@ -98,7 +98,7 @@ int bintree<T>::profondeur_arbre(const node<T> * arbre) const
 }
 
 template <class T>
-int bintree<T>::compter_feuilles_arbre(const node<T> * arbre) const
+int arbre<T>::compter_feuilles_arbre(const node<T> * arbre) const
 {
 	if (arbre == NULL)
 		return 0;
@@ -110,7 +110,7 @@ int bintree<T>::compter_feuilles_arbre(const node<T> * arbre) const
 }
 
 template <class T>
-void bintree<T>::parcours_suffixe(const node<T> *, void (*f)(const T &)) const
+void arbre<T>::parcours_suffixe(const node<T> *, void (*f)(const T &)) const
 {
   if (arbre != NULL)
   {
@@ -121,7 +121,7 @@ void bintree<T>::parcours_suffixe(const node<T> *, void (*f)(const T &)) const
 }
 
 template <class T>
-void bintree<T>::parcours_prefixe(const node<T> *, void (*f)(const T &)) const
+void arbre<T>::parcours_prefixe(const node<T> *, void (*f)(const T &)) const
 {
   if (arbre != NULL)
   {
@@ -135,7 +135,7 @@ void bintree<T>::parcours_prefixe(const node<T> *, void (*f)(const T &)) const
 
 // destructeur
 template <class T>
-bintree<T>::~bintree()
+arbre<T>::~arbre()
 {
 	if (nb_noeuds > 0)
 	{
@@ -148,7 +148,7 @@ bintree<T>::~bintree()
 
 // modifications
 template <class T>
-int bintree<T>::add_left(const T & element)
+int arbre<T>::add_left(const T & element)
 {
 	// création du noeuf et vérif mémoire
 	node<T> * nouveau = new node<T>(element);
@@ -165,7 +165,7 @@ int bintree<T>::add_left(const T & element)
 
 
 template <class T>
-int bintree<T>::add_right(const T & element)
+int arbre<T>::add_right(const T & element)
 {	node<T> * nouveau = new node<T>(element);
 	if (nouveau == NULL)
 		return 0;
@@ -182,7 +182,7 @@ int bintree<T>::add_right(const T & element)
 
 // positionne pointeur courant
 template <class T>
-int bintree<T>::move_current_left()
+int arbre<T>::move_current_left()
 {
 	if (courant == NULL || courant->filsg == NULL)
 		return 0;
@@ -193,7 +193,7 @@ int bintree<T>::move_current_left()
 
 
 template <class T>
-int bintree<T>::move_current_right()
+int arbre<T>::move_current_right()
 {
 	if (courant == NULL || courant->filsd == NULL)
 		return 0;
@@ -204,7 +204,7 @@ int bintree<T>::move_current_right()
 
 
 template <class T>
-int bintree<T>::move_current_root()
+int arbre<T>::move_current_root()
 {
 	if (nb_noeuds == 0)
 		return 0;
@@ -215,7 +215,7 @@ int bintree<T>::move_current_root()
 
 
 template <class T>
-void bintree<T>::empty()
+void arbre<T>::empty()
 {
 	if (nb_noeuds > 0)
 	{
@@ -228,7 +228,7 @@ void bintree<T>::empty()
 
 
 template <class T>
-int bintree<T>::consult_current(T & contenu) const
+int arbre<T>::consult_current(T & contenu) const
 {
 	if (courant == NULL)
 		return 0;
@@ -236,4 +236,5 @@ int bintree<T>::consult_current(T & contenu) const
 	contenu = courant->data;
 	return 1;
 }
+
 
