@@ -7,7 +7,13 @@ Arbre binaire :
 Implantation d'un arbre binaire générique. L'arbre possède un pointeur courant et est chaine vers le bas uniquement.
 
 
+Lancement avec Qt :
 
+Compiler et lancer main.cpp
+
+
+
+//////////
 
 Rendu du TP1 et TP2 du 19 février :
 - Classe Pile finalisée (Nicolas)
