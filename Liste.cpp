@@ -18,13 +18,13 @@ public:
         return pDernier;
     }
 
-    Liste() {
+    Liste<T>::Liste() {
         this->pPremier = nullptr;
         this->pDernier = nullptr;
         this->nbElts = 0;
     }
 
-    void ajouterFin(int x) {
+    void Liste<T>::ajouterFin(int elt) {
         auto *tmp = new NoeudDeListe(int);
         if (listeVide()) {
             this->pPremier = tmp;
@@ -36,7 +36,7 @@ public:
         this->nbElts++;
     }
 
-    virtual bool afficher() {
+    virtual bool Liste<T>::afficher() {
         cout << "Affichage de la liste :\n";
         NoeudDeListe* pListe = this->pPremier;
         if (listeVide()) {
@@ -54,7 +54,7 @@ public:
     }
 
 private:
-    bool listeVide() {
+    bool Liste<T>::listeVide() {
         if (this->nbElts == 0) return true;
         else return false;
     }
