@@ -3,6 +3,7 @@
 
 int T;
 
+template <class T>
 class Liste {
 protected:
     NoeudDeListe* pPremier;
