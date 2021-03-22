@@ -8,12 +8,24 @@ class Liste
         Liste();
         virtual ~Liste();
 
-    private:
+    protected:
     NoeudDeListe* pPremier;
     NoeudDeListe* pDernier;
     int nbElts;
     
-    protected:
+    public:
+    
+    NoeudDeListe* getpPremier();
+    NoeudDeListe* getpDernier();
+    
+    Liste();
+    
+    void ajouterFin(int x);
+    virtual bool afficher();
+    
+    private:
+    
+    bool listeVide();
     
     
 };
