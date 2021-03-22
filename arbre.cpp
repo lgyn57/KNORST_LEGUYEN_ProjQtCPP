@@ -57,13 +57,11 @@ class arbre
 
 	// parcours
 	inline void prefix(void (*f) (T &)) { parcours_prefixe(racine, f);}
-	inline void infix(void (*f) (T &))  { parcours_infixe(racine, f);}
 	inline void suffix(void (*f) (T &)) { parcours_suffixe(racine, f);}
 
 
 	// Affichage
 	inline void prefix(void (*f) (const T &)) const { parcours_prefixe(racine, f);}
-	inline void infix(void (*f) (const T &)) const  { parcours_infixe(racine, f);}
 	inline void suffix(void (*f) (const T &)) const { parcours_suffixe(racine, f);}
 
 	int consult_current(T &) const;					// contenu noeud
