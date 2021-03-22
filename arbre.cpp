@@ -1,6 +1,8 @@
-#include <stdlib.h>
-#include <assert.h>
 
+
+#ifndef IOSTREAM
+#define NDEBUG 
+#include <iostream>
 
 template <class T> class arbre;
 
