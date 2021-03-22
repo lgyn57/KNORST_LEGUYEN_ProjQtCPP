@@ -20,7 +20,7 @@ class Liste
     
     Liste();
     
-    void ajouterFin(int x);
+    void ajouterFin(int elt);
     virtual bool afficher();
     
     private:
