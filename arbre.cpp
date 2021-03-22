@@ -130,3 +130,110 @@ void bintree<T>::parcours_prefixe(const node<T> *, void (*f)(const T &)) const
     parcours_prefixe(arbre->filsd, f);
   }
 }
+
+
+
+// destructeur
+template <class T>
+bintree<T>::~bintree()
+{
+	if (nb_noeuds > 0)
+	{
+		detruire_arbre(racine->filsg);
+		detruire_arbre(racine->filsd);
+		delete racine;
+	}
+}
+
+
+// modifications
+template <class T>
+int bintree<T>::add_left(const T & element)
+{
+	// création du noeuf et vérif mémoire
+	node<T> * nouveau = new node<T>(element);
+	if (nouveau == NULL)
+		return 0;
+	if (nb_noeuds == 0)
+		racine = courant = nouveau;
+	else
+		courant->filsg = nouveau;
+
+	++nb_noeuds;
+	return 1;
+}
+
+
+template <class T>
+int bintree<T>::add_right(const T & element)
+{	node<T> * nouveau = new node<T>(element);
+	if (nouveau == NULL)
+		return 0;
+
+	if (nb_noeuds == 0)
+		racine = courant = nouveau;
+	else
+		courant->filsd = nouveau;
+
+	++nb_noeuds;
+	return 1;
+}
+
+
+// positionne pointeur courant
+template <class T>
+int bintree<T>::move_current_left()
+{
+	if (courant == NULL || courant->filsg == NULL)
+		return 0;
+
+	courant = courant->filsg;
+	return 1;
+}
+
+
+template <class T>
+int bintree<T>::move_current_right()
+{
+	if (courant == NULL || courant->filsd == NULL)
+		return 0;
+
+	courant = courant->filsd;
+	return 1;
+}
+
+
+template <class T>
+int bintree<T>::move_current_root()
+{
+	if (nb_noeuds == 0)
+		return 0;
+
+	courant = racine;
+	return 1;
+}
+
+
+template <class T>
+void bintree<T>::empty()
+{
+	if (nb_noeuds > 0)
+	{
+		detruire_arbre(racine->filsg);
+		detruire_arbre(racine->filsd);
+		delete racine;
+		nb_noeuds = 0;
+	}
+}
+
+
+template <class T>
+int bintree<T>::consult_current(T & contenu) const
+{
+	if (courant == NULL)
+		return 0;
+
+	contenu = courant->data;
+	return 1;
+}
+
