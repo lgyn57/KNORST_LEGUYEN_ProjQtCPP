@@ -1,4 +1,4 @@
-# CompInfoCPP_KNORST_LEGUYEN
+# LEGUYEN_KNORST_ProjQtC++ 
 
 Projet rendu :
 Pourcentage réalisation : 50% Axel LEGUYEN, 50% Nicolas KNORST
