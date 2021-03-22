@@ -1,4 +1,4 @@
-#include "NoeudDeListe.h"
+#include "NoeudDeListe.hpp"
 
 #ifndef IOSTREAM
 #include <iostream>
@@ -7,22 +7,27 @@ using namespace std;
 
 int T;
 
+template <class<T>
 class NoeudDeListe {
+
+/*
 private:
     int donnee;
     NoeudDeListe* suivant;
+*/    
+
 public:
 
-    explicit NoeudDeListe(int donnee) {
+    explicit NoeudDeListe<T>::NoeudDeListe(int donnee) {
         this->donnee = donnee;
-        this->suivant = nullptr; // cf diffÈrence avec NULL
+        this->suivant = nullptr; // cf diff√©rence avec NULL
     }
 
-    int getDonnee() {
+    int NoeudDeListe<T>::getDonnee() {
         return this->donnee;
     }
 
-    void setDonnee(int d) {
+    void NoeudDeListe<T>::setDonnee(int d) {
         this->donnee = d;
     }
 
@@ -34,7 +39,7 @@ public:
         this->suivant = s;
     }
 
-    void afficher() {
+    void NoeudDeListe<T>::afficher() {
         cout << "Donnee -> " << this->donnee << "\n";
     }
 
