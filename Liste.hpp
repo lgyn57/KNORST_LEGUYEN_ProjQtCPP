@@ -2,6 +2,7 @@
 #define LISTE_HPP
 
 
+template <class T>
 class Liste
 {
     public:
